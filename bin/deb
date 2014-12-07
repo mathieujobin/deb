@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'deb'
+
+FriendlyDeb.start(ARGV)
