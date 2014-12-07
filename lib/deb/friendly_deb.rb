@@ -8,11 +8,11 @@ class FriendlyDeb < Thor
     end
   end
 
-  desc "query"
-  option :a, 'all'
-  option :l
-  option :i
-  option :f
+  desc "query", "package query tool"
+  option :a => :boolean
+  option :l => :boolean
+  option :i => :boolean
+  option :f => :boolean
   def query
   end
 
