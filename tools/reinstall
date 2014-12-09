@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+v=`grep -o "[0-9\.]*" lib/deb/version.rb`
+
+gem uninstall deb ; rm deb-$v.gem ; gem build deb.gemspec ; gem install deb-$v.gem
