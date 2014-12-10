@@ -2,4 +2,4 @@
 
 require 'deb'
 
-FriendlyDeb.start(ARGV)
+Deb::Main.start(ARGV)
