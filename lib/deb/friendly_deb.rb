@@ -1,4 +1,5 @@
 require 'deb/tasks'
+trap("SIGINT") { exit! }
 
 class Deb::Main < Thor
 
@@ -6,9 +7,9 @@ class Deb::Main < Thor
   method_options :yes => :boolean, :aliases => "-y"
   def install(pkgname)
     if File.exists?(pkgname)
-      `gdebi #{pkgname}`
+      e "gdebi #{pkgname}"
     else
-      `apt-get install #{pkgname}`
+      e "apt-get install #{pkgname}"
     end
   end
 
@@ -24,7 +25,7 @@ class Deb::Main < Thor
 
   desc "erase <package>", "Delete an installed package"
   def erase(pkgname)
-    `#{s} apt-get remove #{pkgname}`
+    e "apt-get remove #{pkgname}"
   end
 
   desc "test: who am i", "output result of who am i and whoami"
@@ -36,4 +37,15 @@ class Deb::Main < Thor
   desc "verify SUBCOMMAND ...ARGS", "package verify tools"
   subcommand "verify", Deb::Tasks::Verify
 
+  private
+  # execute command managing whether sudo is required.
+  def e(cmd)
+    puts current_user.inspect
+    s = current_user == 'root' ? '' : 'sudo'
+    `#{s} #{cmd}`
+  end
+
+  def current_user
+    `whoami`.chomp
+  end
 end
