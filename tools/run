@@ -1,3 +1,2 @@
 #!/bin/sh
-ruby -I lib bin/deb
-
+ruby -I lib bin/deb $*

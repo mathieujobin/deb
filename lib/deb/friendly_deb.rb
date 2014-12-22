@@ -28,9 +28,10 @@ class Deb::Main < Thor
     e "apt-get remove #{pkgname}"
   end
 
-  desc "test: who am i", "output result of who am i and whoami"
+  desc "whoami", "output result of who am i and whoami"
   def whoami
-    puts [`who am i`, `whoami`, ENV].inspect
+    puts "#{current_user} => #{`who am i`}"
+    puts "ENV => #{ENV.inspect}"
   end
 
   register(Deb::Tasks::Query, 'query', 'query <command>', 'package query tool.')
