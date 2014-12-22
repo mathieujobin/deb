@@ -1,4 +1,4 @@
-class Deb::QueryTasks < Thor
+class Deb::Tasks::Query < Thor
   namespace :query
 
   desc "all", "list all installed packages"

@@ -1,15 +1,4 @@
-require 'deb/query_tasks'
-
-class Deb::Tasks::Verify < Thor
-  desc "all", "verify all packages"
-  def all
-    puts "unimplemented, pull requests welcome."
-  end
-  desc "file", "verify a single file"
-  def file
-    puts "unimplemented, pull requests welcome."
-  end
-end
+require 'deb/tasks'
 
 class Deb::Main < Thor
 
@@ -43,8 +32,8 @@ class Deb::Main < Thor
     puts [`who am i`, `whoami`, ENV].inspect
   end
 
-  register(Deb::QueryTasks, 'query', 'query <command>', 'package query tool.')
+  register(Deb::Tasks::Query, 'query', 'query <command>', 'package query tool.')
   desc "verify SUBCOMMAND ...ARGS", "package verify tools"
-  subcommand "verify", Deb::Commands::Verifyqqq
+  subcommand "verify", Deb::Tasks::Verify
 
 end
