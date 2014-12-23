@@ -35,7 +35,7 @@ class Deb::Main < Thor
     puts "ENV => #{ENV.inspect}"
   end
 
-  register(Deb::Tasks::Query, 'query', 'query <command>', 'package query tool.')
+  register(Deb::Tasks::Query, 'query', 'query SUBCOMMAND ...ARGS', 'package query tool.')
   desc "verify SUBCOMMAND ...ARGS", "package verify tools"
   subcommand "verify", Deb::Tasks::Verify
   desc "system SUBCOMMAND ...ARGS", "debian system tools"
