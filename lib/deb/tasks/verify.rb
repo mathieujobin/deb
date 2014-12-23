@@ -1,7 +1,7 @@
 class Deb::Tasks::Verify < Thor
   desc "all", "verify all packages"
   def all
-    puts "unimplemented, pull requests welcome."
+    `dpkg -C`
   end
   desc "file", "verify a single file"
   def file
