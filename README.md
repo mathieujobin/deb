@@ -5,24 +5,23 @@ Wrapper tool over apt* gpkg* with a rpm/yum command line interface.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'deb'
+```bash
+gem install deb
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install deb
 
 ## Usage
-
-TODO: Write usage instructions here
-
+```
+Commands:
+  deb erase <package>            # Delete an installed package
+  deb freshen <package>          # Should clean up things that were modified
+  deb help [COMMAND]             # Describe available commands or one specific command
+  deb install <package>          # install package, be it a .deb file or not
+  deb query <command>            # package query tool.
+  deb system SUBCOMMAND ...ARGS  # debian system tools
+  deb verify SUBCOMMAND ...ARGS  # package verify tools
+  deb whoami                     # output result of who am i and whoami
+```
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/deb/fork )
