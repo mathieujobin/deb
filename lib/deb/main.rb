@@ -14,10 +14,10 @@ class Deb::Main < Thor
     end
   end
 
-  desc "upgrade <package>", "Same as installed, provided by convenience"
-  def upgrade(pkgname)
-    install(pkgname)
-  end
+  #desc "upgrade <package>", "Same as installed, provided by convenience"
+  #def upgrade(pkgname)
+  #  install(pkgname)
+  #end
 
   desc "freshen <package>", "Should clean up things that were modified"
   def freshen(pkgname)
@@ -38,6 +38,8 @@ class Deb::Main < Thor
   register(Deb::Tasks::Query, 'query', 'query <command>', 'package query tool.')
   desc "verify SUBCOMMAND ...ARGS", "package verify tools"
   subcommand "verify", Deb::Tasks::Verify
+  desc "system SUBCOMMAND ...ARGS", "debian system tools"
+  subcommand "system", Deb::Tasks::System
 
   private
   include Deb::Utils
