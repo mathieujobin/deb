@@ -7,4 +7,7 @@ class Deb::Tasks::Verify < Thor
   def file
     puts "unimplemented, pull requests welcome."
   end
+
+  private
+  include Deb::Utils
 end
